@@ -502,7 +502,7 @@ function (_React$Component) {
     value: function pollWeather(location) {
       var _this2 = this;
 
-      var url = 'http://api.openweathermap.org/data/2.5/weather?';
+      var url = 'https://api.openweathermap.org/data/2.5/weather?';
       var params = {
         lat: location.coords.latitude,
         lon: location.coords.longitude
