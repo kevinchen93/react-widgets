@@ -6,16 +6,32 @@ import Tabs from './tabs';
 import Weather from './weather';
 import Autocomplete from './autocomplete';
 
-const content = ['Tab 1 content', 'Tab 2 content', 'Tab 3 content'];
+const tabs = [
+  {
+    title: 'Tab 1',
+    content: 'Hooray'
+  },
+  {
+    title: 'Tab 2',
+    content: 'for'
+  },
+  {
+    title: 'Tab 3',
+    content: 'React!'
+  },
+];
+
 const names = ['Andre', 'Claire', 'James', 'Kevin', 'Kyle', 'Klay', 'Stephen'];
 
 function Root() {
   return(
     <div>
       <Clock />
-      <Tabs content={content} />
-      <Weather />
-      <Autocomplete names={names} />
+      <Tabs tabs={tabs} />
+      <div>
+        <Weather />
+        <Autocomplete names={names} />
+      </div>
     </div>
   );
 }

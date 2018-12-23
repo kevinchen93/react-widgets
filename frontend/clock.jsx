@@ -38,17 +38,15 @@ class Clock extends React.Component{
 
   render() {
     return (
-      <div>
-        <h1>Clock</h1>
-        <div>
-          <p>
-            <span>Time:</span>
-            <span>{this.displayTime()}</span>
-          </p>
-          <p>
-            <span>Date: </span>
-            <span>{this.displayDate()}</span>
-          </p>
+      <div className="section clock">
+        <h2 className="section-header">Clock</h2>
+        <div className="flex-parent">
+          <p>Time:</p>
+          <p>{this.displayTime()}</p>
+        </div>
+        <div className="flex-parent">
+          <p>Date: </p>
+          <p>{this.displayDate()}</p>
         </div>
       </div>
     );

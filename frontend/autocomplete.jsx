@@ -8,19 +8,13 @@ class Autocomplete extends React.Component {
       input: '',
     };
 
-    this.getInput = this.getInput.bind(this);
+    this.handleInput = this.handleInput.bind(this);
     this.matchedItems = this.matchedItems.bind(this);
     this.handleCompleteClick = this.handleCompleteClick.bind(this);
   }
 
-  getInput(event) {
-    if (event.key === 'Backspace' && this.state.input.length > 0) {
-      this.setState({ input: this.state.input.slice(0, this.state.input.length - 2) });
-    } else if (event.key === 'Backspace' && this.state.input.length === 0) {
-      return;
-    } else {
-      this.setState({ input: this.state.input + event.key });
-    }
+  handleInput(event) {
+    this.setState({ input: event.currentTarget.value });
   }
 
   matchedItems() {
@@ -35,7 +29,6 @@ class Autocomplete extends React.Component {
   }
 
   render() {
-    const that = this;
     const matchedItems = this.matchedItems().map( (matchedItem, idx) => {
       return (
         <li key={idx} onClick={this.handleCompleteClick}>{matchedItem}</li>
@@ -43,24 +36,21 @@ class Autocomplete extends React.Component {
     });
 
     return (
-      <div>
-        <h1>Autocomplete</h1>
+      <div className="section autocomplete">
+        <h2 className="section-header">Autocomplete</h2>
+        <input
+          className="autocomplete-input"
+          type="text"
+          placeholder="Start typing..."
+          onChange={this.handleInput}
+          value={this.state.input} />
 
-        <div>
-          <label>
-            <input
-              type='text'
-              placeholder='Start typing...'
-              onKeyDown={this.getInput}
-              value={this.state.input} />
-          </label>
-        </div>
-
-        <ul>
+        <ul className="matched-results-ul">
           <ReactCSSTransitionGroup
-            transitionName='auto'
-            transitionEnterTimeout={300}
-            transitionLeaveTimeout={300}>
+              transitionName='auto'
+              transitionEnterTimeout={300}
+              transitionLeaveTimeout={300}
+          >
             {matchedItems}
           </ReactCSSTransitionGroup>
         </ul>

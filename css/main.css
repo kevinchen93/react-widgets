@@ -1,0 +1,149 @@
+body {
+  font-family: 'Raleway', sans-serif;
+  background: url("http://s1.1zoom.me/b5050/373/Winter_Houses_Christmas_460784_3840x2400.jpg") no-repeat center;
+  background-size: cover;
+  min-height: 100vh;
+}
+
+input {
+  font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+  color: #e5bde5;
+  line-height: 40px;
+  font-size: 32px;
+  font-weight: 300;
+}
+
+p {
+  color: #ff97e7;
+  line-height: 24px;
+  font-weight: 800;
+}
+
+.section {
+  max-width: 400px;
+  border: 5px solid #ffe7ff;
+  border-radius: 7px;
+  color: #fff;
+  margin: 30px auto;
+  padding: 20px;
+  box-shadow: 0 0 20px 0px rgba(255,231,255,0.5);
+}
+
+.section-header {
+  margin-bottom: 20px;
+}
+
+.flex-parent {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Tabs */
+
+.tab-header-list li {
+  padding: 7px 0px;
+  cursor: pointer;
+  flex: 1 1 0;
+  text-align: center;
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid rgba(255, 255, 255);
+  box-sizing: border-box;
+}
+
+li.selected {
+  color: #ff97e7;
+  background-color: rgba(255,255,255, 0.23);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-bottom: 1px solid transparent;
+}
+
+.tab-content {
+  padding: 20px;
+  background-color: rgba(255,255,255, 0.23);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-top: none;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+/* Autocomplete */
+
+.autocomplete-input {
+  width: 92%;
+  max-width: 600px;
+  border: none;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  font-size: 14px;
+  background-color: rgba(255,255,255,0.2);
+  color: #e5bde5;
+  border-radius: 5px;
+  border-bottom: 2px solid #ff97e7;
+
+  -webkit-transition: 0.3s;
+  -o-transition: 0.3s;
+  transition: 0.3s;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.autocomplete ul {
+  max-height: 180px;
+}
+
+.autocomplete ul::-webkit-scrollbar {
+  background-color: transparent;
+  width: 10px;
+}
+
+.autocomplete ul::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.autocomplete ul::-webkit-scrollbar-thumb {
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 6px;
+  width: 6px;
+}
+
+.section.autocomplete {
+  min-height: 300px;
+}
+
+.autocomplete-input:focus {
+  outline: none;
+  border-bottom: 2px solid #e5bde5;
+}
+
+.auto-enter {
+  opacity: 0.01;
+  transform: translateX(100%);
+}
+
+.auto-enter.auto-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 800ms, transform 800ms;
+}
+
+.auto-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.auto-leave.auto-leave-active {
+  opacity: 0.01;
+  transform: translateX(100%);
+  transition: opacity 800ms, transform 800ms;
+}
+
+.matched-results-ul li:hover {
+  cursor: pointer;
+}

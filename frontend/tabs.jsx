@@ -1,48 +1,54 @@
 import React from 'react';
 
+class TabHeaders extends React.Component {
+  handleClick(idx) {
+    this.props.setCurrentTab(idx);
+  }
+
+  render() {
+    const tabHeaders = this.props.tabs.map( (tabObj, idx) => {
+      return (
+        <li key={idx} onClick ={this.handleClick.bind(this, idx)} className={idx === this.props.currentTab ? "selected" : ""}>
+          <h3>{tabObj.title}</h3>
+        </li>
+      );
+    })
+
+    return (
+      <div className="tab-headers">
+        <ul className="flex-parent tab-header-list">
+          {tabHeaders}
+        </ul>
+      </div>
+    );
+  }
+}
+
 class Tabs extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selectedTabIndex: 0,
     };
-
-    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    e.preventDefault();
-
-    switch (e.currentTarget.innerHTML) {
-      case 'Tab 1':
-        this.setState({ selectedTabIndex: 0 });
-        break;
-      case 'Tab 2':
-        this.setState({ selectedTabIndex: 1 });
-        break;
-      case 'Tab 3':
-        this.setState({ selectedTabIndex: 2 });
-        break;
-    }
-  }
-
-  renderTabsContent() {
-    return this.props.content[this.state.selectedTabIndex];
+  setCurrentTab(tabIdx) {
+    this.setState({ selectedTabIndex: tabIdx });
   }
 
   render() {
-    return (
-      <div>
-        <h1>Tabs</h1>
-        <div>
-          <ul>
-            <li onClick={this.handleClick}>Tab 1</li>
-            <li onClick={this.handleClick}>Tab 2</li>
-            <li onClick={this.handleClick}>Tab 3</li>
-          </ul>
+    const tabs = this.props.tabs;
 
-          <article>{this.renderTabsContent()}</article>
-        </div>
+    return (
+      <div className="section tabs">
+        <h2 className="section-header">Tabs</h2>
+        <TabHeaders
+          tabs={tabs}
+          setCurrentTab={this.setCurrentTab.bind(this)}
+          currentTab={this.state.selectedTabIndex} />
+        <article className="tab-content">
+          <p>{tabs[this.state.selectedTabIndex].content}</p>
+        </article>
       </div>
     );
   }
