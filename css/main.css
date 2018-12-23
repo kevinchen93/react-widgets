@@ -1,6 +1,6 @@
 body {
   font-family: 'Raleway', sans-serif;
-  background: url("http://s1.1zoom.me/b5050/373/Winter_Houses_Christmas_460784_3840x2400.jpg") no-repeat center;
+  background: url("../images/winter_bg.jpg") no-repeat center;
   background-size: cover;
   min-height: 100vh;
 }
