@@ -4,7 +4,7 @@ module.exports = {
   entry: './frontend/widgets.jsx',
   output: {
     path: path.resolve(__dirname),
-    filename: './bundle.js'
+    filename: 'bundle.js'
   },
   module: {
     rules: [
@@ -24,4 +24,4 @@ module.exports = {
     extensions: ['.js', '.jsx', '*']
   },
   devtool: 'source-map'
-}
+};
